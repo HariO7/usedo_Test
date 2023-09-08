@@ -1,0 +1,57 @@
+{
+  "name": "Tyres",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "_id": {
+      "type": "string",
+      "required": true
+    },
+    "modal": {
+      "type": "string",
+      "required": true
+    },
+    "tyreSize": {
+      "type": "number",
+      "required": true
+    },
+    "brandId": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "brand": {
+      "type": "belongsTo",
+      "model": "Brands",
+      "foreignKey": "brandId"
+    }
+  },
+  "acls": [],
+  "methods": {
+    "getCarsCompatibleWithTyre": {
+      "accepts": [
+        {
+          "arg": "tyreId",
+          "type": "string",
+          "required": true,
+          "description": "The ID of the tyre."
+        }
+      ],
+      "returns": {
+        "arg": "compatibleCars",
+        "type": ["Cars"],
+        "root": true,
+        "description": "An array of compatible cars."
+      },
+      "http": {
+        "verb": "get",
+        "path": "/getCarsCompatibleWithTyre"
+      }
+    }
+  }
+}

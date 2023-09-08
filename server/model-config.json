@@ -34,5 +34,17 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Brands": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Cars": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Tyres": {
+    "dataSource": "db",
+    "public": true
   }
 }
